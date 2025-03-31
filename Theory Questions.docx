@@ -1,0 +1,135 @@
+1.Explain the JVM architecture with a diagram.
+
+
+JVM is a part of JRE (Java Runtime Environment) that helps run Java programs. It converts Java bytecode into machine code so the program can execute on any system.
+
+JVM Components:
+
+Class Loader – Loads Java class files into memory.
+
+Method Area – Stores class metadata, static variables, and method code.
+
+Heap – Stores objects created in Java.
+
+Stack – Stores method calls and local variables.
+
+PC Register – Holds the address of the currently executing instruction.
+
+Execution Engine – Converts bytecode to machine code.
+
+Native Interface – Helps Java interact with native (non-Java) libraries.
+
+
+
+
+
+
+
+
+2.Differentiate between JDK, JRE and JVM.
+Ans:- 
+Aspect	JDK	JRE	JVM
+Purpose	Used to develop Java applications	Used to run Java applications	Executes Java bytecode
+Platform Dependency	Platform-dependent (OS specific)	Platform-dependent (OS specific)	JVM is OS-specific, but bytecode is platform-independent
+Includes	JRE + Development tools (javac, debugger, etc.)	JVM + Libraries (e.g., rt.jar)	ClassLoader, JIT Compiler, Garbage Collector
+Use Case	Writing and compiling Java code	Running a Java application on a system	Convert bytecode into native machine code
+
+3.How does Java achieve platform independence?
+
+Ans:- Java is platform-independent because of its "Write Once, Run Anywhere" (WORA) feature. This means that Java programs can run on any operating system (Windows, Linux, Mac) without modification.
+It Works:
+1) Compilation – Java code is compiled into bytecode (not machine-specific code).
+2) JVM Execution – The Java Virtual Machine (JVM) reads the bytecode and converts it into machine code for the specific OS.
+3) JVM Availability – Different operating systems have their own JVM, so the same bytecode can run on any system.
+
+
+4.What is bytecode in Java, and why is it important?
+
+Ans:- Bytecode in Java is the reason java is platform-independent, as soon as a Java program is compiled bytecode is generated. To be more precise a Java bytecode is the machine code in the form of a . class file. A bytecode in Java is the instruction set for Java Virtual Machine and acts similar to an assembler.
+
+5.Explain the concept of dynamic memory allocation in Java.
+
+Ans:- In Java, dynamic memory allocation refers to allocating and deallocating memory during program execution, allowing for flexible data structures and efficient resource utilization. This is achieved through the new keyword for object creation and garbage collection for automatic memory management. 
+Key Concepts:
+Dynamic Allocation:
+Unlike static allocation (where memory is fixed at compile time), dynamic allocation allows you to allocate memory as needed during runtime. 
+
+6.Compare and contrast method overloading and method overriding.
+
+Ans:- 
+Method Overloading	Method Overriding
+Method overloading is a compile-time polymorphism.	Method overriding is a run-time polymorphism.
+Method overloading helps to increase the readability of the program.	Method overriding is used to grant the specific implementation of the method which is already provided by its parent class or superclass.
+It occurs within the class.	It is performed in two classes with inheritance relationships.
+Method overloading may or may not require inheritance.	Method overriding always needs inheritance.
+In method overloading, methods must have the same name and different signatures.	In method overriding, methods must have the same name and same signature.
+In method overloading, the return type can or can not be the same, but we just have to change the parameter.	In method overriding, the return type must be the same or co-variant.
+Static binding is being used for overloaded methods.	Dynamic binding is being used for overriding methods.
+Private and final methods can be overloaded.	Private and final methods can’t be overridden.
+
+
+7.How do access specifiers impact data security in Java?
+
+Ans:- Access specifiers in Java help protect data by controlling access to classes, methods, and variables. Private access restricts data to the same class, ensuring security for sensitive information. Default allows access within the same package, offering limited protection. Protected permits access within the package and subclasses, balancing security and inheritance. Public makes data accessible everywhere, which can be risky for important information.
+
+8.Explain abstraction and encapsulation with real-world examples.
+
+Ans:- Abstraction means hiding unnecessary details and showing only the essential features. For example, when we drive a car, we use the steering and brakes without knowing how the engine works internally. Similarly, in Java, abstraction is implemented using abstract classes and interfaces to hide complex logic.
+
+Encapsulation means wrapping data and methods together to protect information from unauthorized access. For example, in a bank account system, the account balance is private, and we can only access it through secure methods like deposit or withdraw. In Java, encapsulation is achieved using private variables with public getter and setter methods, ensuring data security and controlled access
+
+
+9.How does Java implement multiple inheritance using interfaces?
+
+Ans:- Java does not support multiple inheritance with classes to avoid conflicts and ambiguity, but it allows multiple inheritance through interfaces. An interface in Java is like a blueprint that contains method declarations but no implementations. A class can implement multiple interfaces, which means it can inherit behavior from multiple sources without the risk of conflicts.
+
+For example, consider a smartphone that can function as both a camera and a music player. Instead of inheriting from two different classes, it can implement two interfaces: Camera and MusicPlayer, each defining specific functionalities. This approach allows Java to achieve multiple inheritance while maintaining code clarity and avoiding conflicts.
+
+
+
+10.What is the difference between checked and unchecked exceptions?
+Ans:- 
+Checked exceptions are checked at compile time, meaning the program will not compile unless they are handled using try-catch or throws. These are usually caused by external factors, like file not found or database connection failure.
+
+Unchecked exceptions occur at runtime and are not checked at compile time. They usually result from logical errors like dividing by zero or accessing an invalid array index. These exceptions occur due to programming mistakes and can be prevented with better coding practices.
+
+11.Explain the use of try-catch-finally blocks with examples.
+
+Ans:- The try-catch-finally block in Java is used for exception handling, ensuring that the program runs smoothly even when errors occur.
+
+The try block contains code that may throw an exception.
+
+The catch block handles the exception if it occurs, preventing the program from crashing.
+
+The finally block contains code that always executes, whether an exception occurs or not, often used for cleanup like closing files or database connections
+
+
+12.How does polymorphism enhance code reusability in Java?
+
+Ans:-  Polymorphism in Java allows a single interface or method to be used for different data types or behaviors, making code more flexible and reusable. It is mainly achieved through method overloading (same method name, different parameters) and method overriding (same method name in the parent and child class with different implementations).
+
+13.Discuss the significance of the this and super keywords.
+
+Ans:- The this and super keywords in Java are used to differentiate between the current class and the parent class, improving code clarity and reusability.
+
+The this keyword refers to the current object, helping to avoid confusion between instance variables and method parameters with the same name. It is also used to call another constructor within the same class.
+
+The super keyword refers to the parent class, allowing access to parent class methods, constructors, and variables that are overridden or hidden in the child class. This helps in reusing the existing functionality without rewriting code.
+
+14.Explain the concept of immutability in Strings
+
+Ans:- In Java, Strings are immutable, meaning their value cannot be changed once created. If any modification is made to a String, a new object is created instead of changing the original one.
+
+15.What are the best practices for writing efficient Java code?
+
+Ans:-  
+
+Use StringBuilder instead of String for modifications – Since Strings are immutable, frequent changes should be handled with StringBuilder for better performance.
+
+Optimize loops and avoid unnecessary computations – Use enhanced for-each loops and efficient data structures like HashMap instead of nested loops.
+
+Proper exception handling – Use specific exceptions instead of catching generic ones to improve debugging and avoid performance issues.
+
+Use Collections and Streams – Java’s built-in collections (like ArrayList, HashSet) and Streams API make data processing faster and more readable.
+
+Follow OOP principles – Use encapsulation, abstraction, and polymorphism to write modular and reusable code.
